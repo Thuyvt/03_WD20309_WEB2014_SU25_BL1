@@ -33,6 +33,7 @@
                 require_once PATH_VIEW . $view . '.php';
             }
             ?>
+            <a href="?action=student-list">Danh sách sinh viên</a>
         </div>
     </div>
 

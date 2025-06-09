@@ -6,5 +6,6 @@
     public $account;
     public $date_of_birth;
     public $major_name;
+    public $avatar;
  }
 ?>

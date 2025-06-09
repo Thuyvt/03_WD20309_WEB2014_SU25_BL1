@@ -17,6 +17,7 @@
                     $object->account = $value["account"];
                     $object->date_of_birth = $value["date_of_birth"];
                     $object->major_name = $value["major_name"];
+                    $object->avatar = $value["avatar"];
                     $danhSach[] = $object;
                 }
                 return $danhSach;
@@ -27,5 +28,17 @@
         }
 
         // Khai báo hàm thêm mới
+        public function create(Student $student) {
+            try {
+                $sql = "INSERT INTO `student` (`id`, `name`, `major_id`,
+                 `account`, `date_of_birth`, `avatar`)
+                 VALUES (NULL, '$student->name', '$student->major_id', 
+                 '$student->account', '$student->date_of_birth', '$student->avatar');";
+                $data = $this->pdo->exec($sql);
+                return $data;
+            } catch(Exception $error) {
+                echo "Lỗi: " . $error->getMessage();
+            }
+        }
     }
 ?>

@@ -7,7 +7,7 @@
 </head>
 <body>
     <h2>Danh sách sinh viên</h2>
-    <a href="">Tạo mới</a>
+    <a href="?action=student-create">Tạo mới</a>
     <!-- <?php 
     echo "<pre>";
     var_dump($danhSach)?> -->
@@ -19,6 +19,7 @@
                 <th>Chuyên ngành</th>
                 <th>Mã sinh viên</th>
                 <th>Ngày sinh</th>
+                <th>Ảnh đại diện</th>
                 <th>Hành dộng</th>
             </tr>
         </thead>
@@ -30,6 +31,11 @@
                 <td><?= $student->major_name ?></td>
                 <td><?= $student->account ?></td>
                 <td><?= $student->date_of_birth ?></td>
+                <td>
+                    <?php if(!empty($student->avatar)):?>
+                        <img src="<?= BASE_ASSETS_UPLOADS .$student->avatar ?>" alt="" width="100">
+                    <?php endif; ?>
+                </td>
                 <td>
                     <a href="?action=student-detail&id=<?=$student->id?>">Chi tiết</a>
                     <a href="?action=student-detail&id=<?=$student->id?>">Sửa</a>
